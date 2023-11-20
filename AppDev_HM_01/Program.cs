@@ -74,38 +74,12 @@ namespace AppDev_HM_01
 
                 try
                 {
-                    switch (operation)
-                    {
-                        case "+":
-                            result = num1 + num2;
-                            break;
-                        case "-":
-                            result = num1 - num2;
-                            if (result < 0)
-                            {
-                                throw new Exception("Результат не может быть отрицательным.");
-                            }
-                            break;
-                        case "*":
-                            result = num1 * num2;
-                            break;
-                        case "/":
-                            if (num2 == 0)
-                            {
-                                throw new Exception("Деление на ноль невозможно.");
-                            }
-                            result = num1 / num2;
-                            if (result < 0)
-                            {
-                                throw new Exception("Результат не может быть отрицательным.");
-                            }
-                            break;
-                        default:
-                            Console.WriteLine("Неверный оператор.");
-                            continue;
-                    }
-
+                    result = Calculator.Calculate(num1, num2, operation);
                     Console.WriteLine($"Результат: {num1} {operation} {num2} = {result}");
+                }
+                catch (CalculationException ex)
+                {
+                    Console.WriteLine($"Ошибка: {ex.Message}");
                 }
                 catch (Exception ex)
                 {
