@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppDev_HM_01
 {
@@ -30,8 +26,9 @@ namespace AppDev_HM_01
                     break;
                 }
 
-                if (!DoubleTryParse(input, out double num1))
+                if (!double.TryParse(input, out double num1))
                 {
+                    Console.WriteLine("Неверный формат числа.");
                     continue;
                 }
 
@@ -65,8 +62,9 @@ namespace AppDev_HM_01
                     break;
                 }
 
-                if (!DoubleTryParse(input, out double num2))
+                if (!double.TryParse(input, out double num2))
                 {
+                    Console.WriteLine("Неверный формат числа.");
                     continue;
                 }
 
@@ -86,18 +84,6 @@ namespace AppDev_HM_01
                     Console.WriteLine($"Ошибка: {ex.Message}");
                 }
             }
-        }
-
-        private static bool DoubleTryParse(string input, out double result)
-        {
-            bool success = double.TryParse(input, out result);
-
-            if (!success)
-            {
-                Console.WriteLine("Неверный формат числа.");
-            }
-
-            return success;
         }
     }
 }

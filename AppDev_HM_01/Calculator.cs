@@ -27,6 +27,10 @@ namespace AppDev_HM_01
                     {
                         throw new CalculationException("Деление на ноль невозможно.");
                     }
+                    if (num1 < num2)
+                    {
+                        throw new CalculationException("Результат не может быть отрицательным.");
+                    }
                     return num1 / num2;
                 default:
                     throw new CalculationException("Неверный оператор.");
