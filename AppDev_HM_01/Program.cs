@@ -10,6 +10,11 @@ namespace AppDev_HM_01
     {
         static void Main(string[] args)
         {
+            MyClass obj = new MyClass();
+            ReflectionExample.ObjectToString(obj);
+            ReflectionExample.StringToObject(obj, "CustomFieldName", "10");
+            ReflectionExample.ObjectToString(obj);
+            Console.ReadLine();
         }
     }
 }
